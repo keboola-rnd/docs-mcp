@@ -10,7 +10,7 @@ connectors, Claude Desktop, Cursor, etc.) can point at `/mcp` directly — there
 is no bearer token, OAuth flow, or client-side credential of any kind.
 
 ```
-client ──HTTPS, no auth──▶ Keboola data app ─▶ ai.keboola.com/docs/question
+client ──HTTPS, no auth──▶ Keboola data app ─▶ ai.us-east4.gcp.keboola.com/docs/question
                                               (X-StorageAPI-Token held server-side)
 ```
 
@@ -32,7 +32,7 @@ they are encrypted at rest):
 | Env var                  | Required | Notes                                            |
 |--------------------------|----------|--------------------------------------------------|
 | `KBC_STORAGE_TOKEN`      | yes      | Keboola Storage API token used to call the AI service. Never leaves the server. |
-| `KBC_AI_SERVICE_URL`     | no       | Defaults to `https://ai.keboola.com`.            |
+| `KBC_AI_SERVICE_URL`     | no       | Defaults to `https://ai.us-east4.gcp.keboola.com`. |
 | `PORT`                   | no       | Defaults to `5000` (matches Keboola convention). |
 
 ## Local development
@@ -88,5 +88,6 @@ The client will discover the `docs_query` tool automatically.
 - Because the endpoint is public, expect anyone with the URL to be able to
   burn quota against your Storage API token. Use a dedicated, low-privilege
   token and rotate it if abuse occurs.
-- The upstream `ai.keboola.com/docs/question` endpoint accepts any valid
-  Storage API token regardless of project — the docs corpus is platform-wide.
+- The upstream `ai.us-east4.gcp.keboola.com/docs/question` endpoint accepts
+  any valid Storage API token regardless of project — the docs corpus is
+  platform-wide.

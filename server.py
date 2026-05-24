@@ -15,7 +15,7 @@ Required env vars:
                           On a Keboola data app, add as a `#`-prefixed secret.
 
 Optional env vars:
-    KBC_AI_SERVICE_URL    Defaults to https://ai.keboola.com.
+    KBC_AI_SERVICE_URL    Defaults to https://ai.us-east4.gcp.keboola.com.
     PORT                  Defaults to 5000 (Keboola data app convention).
 """
 
@@ -36,7 +36,7 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name
 log = logging.getLogger("docs-mcp")
 
 KBC_STORAGE_TOKEN = os.environ["KBC_STORAGE_TOKEN"]
-KBC_AI_SERVICE_URL = os.environ.get("KBC_AI_SERVICE_URL", "https://ai.keboola.com").rstrip("/")
+KBC_AI_SERVICE_URL = os.environ.get("KBC_AI_SERVICE_URL", "https://ai.us-east4.gcp.keboola.com").rstrip("/")
 
 mcp = FastMCP("keboola-docs-mcp")
 
